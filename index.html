@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Christian</title>
+    <meta name="description" content="Portfólio Christian.">
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        syne: ['Syne', 'sans-serif'],
+                        jakarta: ['Plus Jakarta Sans', 'sans-serif'],
+                    },
+                    colors: {
+                        darkBg: '#121212',
+                        darkCard: 'rgba(255, 255, 255, 0.03)',
+                        glassBorder: 'rgba(255, 255, 255, 0.08)',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        html, body {
+            background: linear-gradient(135deg, #121212 0%, #1a1a1a 100%);
+            background-attachment: fixed;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-snap-type: y mandatory;
+            overscroll-behavior-y: none;
+        }
+
+        .perspective-container {
+            perspective: 1200px !important;
+            perspective-origin: 50% 50% !important;
+        }
+
+        .flip-char, .logo-flip {
+            display: inline-block !important;
+            transform-style: preserve-3d !important;
+            backface-visibility: visible !important;
+            transform-origin: 50% 50% -20px !important;
+            opacity: 1 !important;
+            will-change: transform !important;
+            transition: text-shadow 0.4s ease !important;
+        }
+
+        .flip-char.char-glow, .logo-flip.char-glow {
+            text-shadow: 0 0 22px rgba(255, 255, 255, 0.95), 0 0 45px rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .reveal-char {
+            opacity: 0;
+            filter: blur(12px);
+            transform: scale(1.15) translateY(10px);
+            transition: text-shadow 0.3s ease;
+            will-change: transform, opacity, filter;
+        }
+
+        .reveal-char.char-active {
+            opacity: 1;
+            filter: blur(0px);
+            transform: scale(1) translateY(0);
+            text-shadow: 0 0 25px rgba(255, 255, 255, 0.9), 0 0 50px rgba(255, 255, 255, 0.4);
+        }
+
+        .typewriter-cursor::after {
+            content: '|';
+            display: inline;
+            margin-left: 2px;
+            color: #ffffff;
+            animation: blink 0.7s infinite;
+            white-space: nowrap;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .glass-button {
+            background: rgba(255, 255, 255, 0.06);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-button:hover {
+            background: rgba(255, 255, 255, 0.95);
+            color: #121212;
+            border-color: rgba(255, 255, 255, 0.95);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(255, 255, 255, 0.15);
+        }
+
+        @keyframes marquee {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+
+        .animate-marquee {
+            display: flex;
+            width: max-content;
+            animation: marquee 32s linear infinite;
+            will-change: transform;
+        }
+
+        .animate-marquee:hover {
+            animation-play-state: paused;
+        }
+
+        .embla {
+            width: 100%;
+            padding-top: 3rem;
+            padding-bottom: 5.5rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .embla__container {
+            display: flex;
+            user-select: none;
+            -webkit-touch-callout: none;
+            -khtml-user-select: none;
+            -ms-touch-action: pan-y;
+            touch-action: pan-y;
+            align-items: flex-start;
+        }
+
+        .embla__slide {
+            flex: 0 0 33.3333%;
+            min-width: 0;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+            z-index: 1;
+        }
+
+        @media (min-width: 640px) {
+            .embla__slide {
+                padding-left: 0.75rem;
+                padding-right: 0.75rem;
+            }
+        }
+
+        .embla__slide .project-card {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+        }
+
+        .embla__slide .project-image-box {
+            width: 100%;
+            transform: scale(0.85);
+            opacity: 0.4;
+            filter: blur(1.5px);
+            transition: transform 0.45s cubic-bezier(0.2, 0.8, 0.2, 1), opacity 0.45s ease, filter 0.45s ease;
+            transform-origin: center bottom;
+        }
+
+        .embla__slide.is-selected {
+            z-index: 20;
+        }
+
+        .embla__slide.is-selected .project-image-box {
+            transform: scale(1.16);
+            opacity: 1;
+            filter: blur(0px);
+        }
+
+        .embla__slide:not(.is-selected) a {
+            pointer-events: none;
+        }
+
+        .embla__slide .project-info {
+            opacity: 0;
+            pointer-events: none;
+            position: relative;
+            margin-top: -0.5rem;
+            transition: opacity 0.4s ease, transform 0.4s ease;
+            transform: translateY(10px);
+        }
+
+        .embla__slide.is-selected .project-info {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateY(0);
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .preloader-word.active {
+            opacity: 1 !important;
+            transform: scale(1.05) !important;
+            filter: blur(0px) !important;
+        }
+
+        .preloader-word.exit {
+            opacity: 0 !important;
+            transform: scale(1.15) !important;
+            filter: blur(8px) !important;
+        }
+
+        #preloader.slide-up {
+            transform: translateY(-100%);
+        }
+
+        .hero-stagger {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .hero-stagger.stagger-in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal-scale {
+            opacity: 0;
+            transform: scale(0.93) translateY(20px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1), transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+            will-change: opacity, transform;
+        }
+
+        .scroll-reveal.revealed,
+        .scroll-reveal-left.revealed,
+        .scroll-reveal-right.revealed,
+        .scroll-reveal-scale.revealed {
+            opacity: 1;
+            transform: translateY(0) translateX(0) scale(1);
+        }
+
+        .delay-100 { transition-delay: 100ms; }
+        .delay-150 { transition-delay: 150ms; }
+        .delay-200 { transition-delay: 200ms; }
+        .delay-250 { transition-delay: 250ms; }
+        .delay-300 { transition-delay: 300ms; }
+        .delay-350 { transition-delay: 350ms; }
+        .delay-400 { transition-delay: 400ms; }
+        .delay-450 { transition-delay: 450ms; }
+        .delay-500 { transition-delay: 500ms; }
+
+        section {
+            scroll-snap-align: start;
+            scroll-snap-stop: always;
+        }
+
+        #lang-ripple-overlay {
+            position: fixed;
+            inset: 0;
+            background: radial-gradient(circle at center, #1e1e26 0%, #121212 100%);
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0;
+            transform: translateZ(0);
+            backface-visibility: hidden;
+            will-change: clip-path, opacity, transform;
+        }
+
+        .ripple-expanding {
+            animation: rippleExpand 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+        }
+
+        @keyframes rippleExpand {
+            0% {
+                clip-path: circle(0px at var(--ripple-x, 50%) var(--ripple-y, 50%));
+                opacity: 1;
+            }
+            50% {
+                clip-path: circle(var(--ripple-max-radius, 150vmax) at var(--ripple-x, 50%) var(--ripple-y, 50%));
+                opacity: 1;
+            }
+            100% {
+                clip-path: circle(var(--ripple-max-radius, 150vmax) at var(--ripple-x, 50%) var(--ripple-y, 50%));
+                opacity: 0;
+            }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            html {
+                scroll-behavior: auto !important;
+                scroll-snap-type: none !important;
+            }
+            .scroll-reveal,
+            .scroll-reveal-left,
+            .scroll-reveal-right,
+            .scroll-reveal-scale,
+            .hero-stagger {
+                transition: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-[#121212] text-gray-200 antialiased selection:bg-white selection:text-black overflow-hidden">
+
+    <div id="lang-ripple-overlay" class="fixed inset-0 pointer-events-none z-[9999] opacity-0"></div>
+
+    <div id="preloader" class="fixed inset-0 z-[100] bg-[#121212] flex items-center justify-center transition-transform duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)] pointer-events-auto">
+        <div class="relative flex items-center justify-center w-full max-w-xl h-24">
+            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">CREATIVITY</span>
+            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">PERFORMANCE</span>
+            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">INNOVATION</span>
+        </div>
+    </div>
+
+    <div class="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.03)_0%,rgba(26,26,26,1)_75%)]"></div>
+
+    <header class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 flex justify-between items-center bg-[#121212] border-b border-white/5 shadow-lg transition-all duration-300 hero-stagger" id="main-header">
+        <a href="#hero" class="flex flex-col font-syne font-extrabold text-xl md:text-2xl text-white uppercase leading-[0.8] hover:opacity-80 transition-opacity w-max perspective-container">
+            <span class="tracking-[0.14em] inline-flex">
+                <span class="logo-flip">C</span>
+                <span class="logo-flip">H</span>
+                <span class="logo-flip">R</span>
+            </span>
+            <span class="tracking-[0.22em] -mt-1 md:-mt-1.5 inline-flex">
+                <span class="logo-flip">D</span>
+                <span class="logo-flip">E</span>
+                <span class="logo-flip">V</span>
+            </span>
+        </a>
+        <div class="flex items-center gap-5 sm:gap-8">
+            <nav class="hidden md:flex items-center gap-8 font-jakarta text-xs uppercase tracking-[0.25em] text-gray-400 font-medium">
+                <a href="#sobre" data-i18n="nav.sobre" class="hover:text-white transition-colors">Sobre</a>
+                <a href="#projetos" data-i18n="nav.projetos" class="hover:text-white transition-colors">Projetos</a>
+                <a href="#trajetoria" data-i18n="nav.trajetoria" class="hover:text-white transition-colors">Trajetória</a>
+                <a href="#contato" data-i18n="nav.contato" class="hover:text-white transition-colors">Contato</a>
+            </nav>
+
+            <button id="lang-toggle-btn" onclick="toggleLanguage(event)" aria-label="Alternar Idioma / Toggle Language" class="relative w-9 h-9 rounded-full bg-white/5 border border-white/15 hover:border-white/30 hover:bg-white/15 active:scale-95 transition-all duration-300 flex items-center justify-center shadow-lg group focus:outline-none overflow-hidden select-none">
+                <span id="lang-label" class="font-mono text-xs font-bold text-white tracking-wider group-hover:scale-110 transition-transform">PT</span>
+            </button>
+        </div>
+    </header>
+
+    <aside class="fixed left-6 md:left-10 bottom-10 z-40 hidden sm:flex flex-col items-center gap-6 hero-stagger" id="left-sidebar">
+        <a href="https://www.linkedin.com/in/christian-bening-aaa30528a/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
+            <i class="fa-brands fa-linkedin text-xl text-sky-400"></i>
+        </a>
+        <a href="https://github.com/Chr1sBg" target="_blank" rel="noopener noreferrer" aria-label="GitHub" class="text-gray-400 hover:text-white transition-colors hover:scale-110 transform duration-200">
+            <i class="fa-brands fa-github text-xl text-white"></i>
+        </a>
+        <div class="w-[1px] h-12 bg-white/10 mt-2"></div>
+    </aside>
+
+    <aside class="fixed right-6 md:right-10 bottom-10 z-40 flex flex-col items-end gap-3 font-jakarta text-xs pointer-events-none hero-stagger" id="right-sidebar">
+        <div class="flex items-center gap-3">
+            <span id="current-section-num" class="font-syne font-bold text-white text-base md:text-lg tracking-widest">.01</span>
+            <div class="w-8 h-[1px] bg-white/20"></div>
+        </div>
+        <div class="hidden md:flex flex-col items-end gap-1 text-[10px] text-gray-500 font-mono tracking-wider">
+            <span id="indicator-01" data-i18n="side.01" class="transition-all duration-300 opacity-100 text-white font-bold">.01 HERO</span>
+            <span id="indicator-02" data-i18n="side.02" class="transition-all duration-300 opacity-40">.02 SOBRE</span>
+            <span id="indicator-03" data-i18n="side.03" class="transition-all duration-300 opacity-40">.03 PROJETOS</span>
+            <span id="indicator-04" data-i18n="side.04" class="transition-all duration-300 opacity-40">.04 TRAJETÓRIA</span>
+            <span id="indicator-05" data-i18n="side.05" class="transition-all duration-300 opacity-40">.05 CONTATO</span>
+        </div>
+    </aside>
+
+    <main class="w-full relative z-10" id="main-scroll-container">
+
+        <section id="hero" data-section="01" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-6 sm:px-12 relative">
+            <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative" id="hero-content">
+                
+                <div class="w-full flex justify-start pl-2 sm:pl-8 md:pl-12 mb-1 hero-stagger" id="hero-subtitle">
+                    <span data-i18n="hero.subtitle" class="text-xs sm:text-sm uppercase tracking-[0.4em] text-gray-400 font-semibold">
+                        EU SOU
+                    </span>
+                </div>
+
+                <h1 class="font-syne font-extrabold text-5xl sm:text-7xl md:text-9xl text-white tracking-tight leading-none uppercase select-none drop-shadow-2xl text-center my-2 flex justify-center items-center gap-0.5 sm:gap-1.5 md:gap-2 perspective-container hero-stagger" id="hero-title">
+                    <span class="flip-char">C</span>
+                    <span class="flip-char">H</span>
+                    <span class="flip-char">R</span>
+                    <span class="flip-char">I</span>
+                    <span class="flip-char">S</span>
+                    <span class="flip-char">T</span>
+                    <span class="flip-char">I</span>
+                    <span class="flip-char">A</span>
+                    <span class="flip-char">N</span>
+                </h1>
+
+                <div class="w-full flex justify-end pr-2 sm:pr-8 md:pr-12 mt-2 hero-stagger" id="hero-tagline">
+                    <p data-i18n="hero.tagline" class="text-xs sm:text-sm md:text-base uppercase tracking-[0.35em] text-gray-400 font-medium">
+                        DESENVOLVEDOR FULLSTACK
+                    </p>
+                </div>
+            </div>
+
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex flex-col items-center gap-2 text-gray-500 text-[10px] uppercase tracking-widest animate-pulse hero-stagger" id="hero-scroll">
+                <span>SCROLL</span>
+                <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </div>
+        </section>
+
+        <section id="sobre" data-section="02" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-between items-center py-16 md:py-20 relative overflow-hidden">
+            <div class="max-w-4xl w-full mx-auto space-y-8 px-6 my-auto text-center">
+                <div class="space-y-2 scroll-reveal">
+                    <span data-i18n="sobre.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.02 // APRESENTAÇÃO</span>
+                    <h2 data-i18n="sobre.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">SOBRE MIM</h2>
+                </div>
+
+                <div class="space-y-6 text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light text-center">
+                    <p data-i18n="sobre.p1" class="scroll-reveal delay-150">
+                        Sou desenvolvedor Fullstack focado em criar aplicações web completas, do visual até a lógica do servidor. Gosto de construir sistemas rápidos, organizados e práticos para o dia a dia.
+                    </p>
+                    <p data-i18n="sobre.p2" class="scroll-reveal delay-250">
+                        Minha stack principal inclui React.js, Next.js, Node.js, TypeScript e Prisma. Além da Web, também tenho bastante interesse e conhecimento prático em IoT, conectando hardware e dispositivos inteligentes a interfaces web.
+                    </p>
+                </div>
+            </div>
+
+            <div class="w-full overflow-hidden relative py-6 sm:py-8 border-y border-white/5 bg-white/[0.01] scroll-reveal-scale delay-350">
+                <div class="animate-marquee items-center text-sm sm:text-base font-semibold uppercase tracking-widest text-gray-300">
+                    
+                    <div class="flex items-center gap-12 sm:gap-16 pr-12 sm:pr-16">
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-html5 text-xl sm:text-2xl text-white"></i> HTML</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-css3-alt text-xl sm:text-2xl text-white"></i> CSS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-square-js text-xl sm:text-2xl text-white"></i> JAVASCRIPT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M1.125 0C.507 0 0 .507 0 1.125v21.75C0 23.493.507 24 1.125 24h21.75c.618 0 1.125-.507 1.125-1.125V1.125C24 .507 23.493 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.71-.244 4.807 4.807 0 0 0-.82-.132 4.417 4.417 0 0 0-.742.062c-.22.04-.4.12-.54.24a.8.8 0 0 0-.21.57c0 .18.05.33.15.45.1.12.24.22.42.31.18.09.4.17.66.25.26.08.54.17.84.26.42.14.8.31 1.14.5.34.19.62.42.84.69.22.27.38.58.48.93.1.35.15.75.15 1.2 0 .6-.1 1.14-.3 1.62a3.86 3.86 0 0 1-.84 1.26 4.3 4.3 0 0 1-1.35.84 5.3 5.3 0 0 1-1.8.3c-.64 0-1.24-.05-1.8-.15a6.9 6.9 0 0 1-1.5-.42v-2.58c.24.16.53.31.87.45.34.14.71.25 1.11.33.4.08.8.12 1.2.12.38 0 .72-.05 1.02-.15.3-.1.54-.24.72-.42.18-.18.3-.39.36-.63.06-.24.09-.49.09-.75 0-.24-.04-.45-.12-.63a1.44 1.44 0 0 0-.36-.48 2.54 2.54 0 0 0-.6-.36c-.24-.12-.52-.24-.84-.36-.42-.15-.81-.32-1.17-.51a3.02 3.02 0 0 1-.9-.75 2.5 2.5 0 0 1-.54-1.02c-.12-.39-.18-.84-.18-1.35 0-.58.11-1.1.33-1.56.22-.46.54-.85.96-1.17.42-.32.93-.56 1.53-.72a7.88 7.88 0 0 1 1.95-.24zm-8.868.18v2.34h-2.19v11.43H5.61V12.27H3.42V9.93z"/></svg> TYPESCRIPT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-react text-xl sm:text-2xl text-white"></i> REACT.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 180 180"><path d="M90 0a90 90 0 1090 90A90.1 90.1 0 0090 0zM45 138V42h16.2l34.2 55.8V42h13.8v96h-15l-35.4-57.6V138zm84.6-21.6l-19.8-31.2 9-13.8 22.8 35.4z"/></svg> NEXT.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19.2 12.001 19.2c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg> TAILWIND</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M18.8 20.3L12 1.5 5.5 13.9l13.3 6.4zM12 4.4l4.9 13.5-9.6-4.6L12 4.4z"/></svg> PRISMA</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-arrows-rotate text-xl sm:text-2xl text-white"></i> REACT QUERY</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-network-wired text-xl sm:text-2xl text-white"></i> AXIOS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-database text-xl sm:text-2xl text-white"></i> POSTGRESQL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M12 1L24 22H0L12 1z"/></svg> VERCEL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-node-js text-xl sm:text-2xl text-white"></i> NODE.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-python text-xl sm:text-2xl text-white"></i> PYTHON</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-database text-xl sm:text-2xl text-white"></i> MYSQL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-figma text-xl sm:text-2xl text-white"></i> FIGMA</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-git-alt text-xl sm:text-2xl text-white"></i> GIT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-github text-xl sm:text-2xl text-white"></i> GITHUB</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-microchip text-xl sm:text-2xl text-white"></i> IOT & HARDWARE</div>
+                    </div>
+
+                    <div class="flex items-center gap-12 sm:gap-16 pr-12 sm:pr-16" aria-hidden="true">
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-html5 text-xl sm:text-2xl text-white"></i> HTML</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-css3-alt text-xl sm:text-2xl text-white"></i> CSS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-square-js text-xl sm:text-2xl text-white"></i> JAVASCRIPT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M1.125 0C.507 0 0 .507 0 1.125v21.75C0 23.493.507 24 1.125 24h21.75c.618 0 1.125-.507 1.125-1.125V1.125C24 .507 23.493 0 22.875 0zm17.363 9.75c.612 0 1.154.037 1.627.111a6.38 6.38 0 0 1 1.306.34v2.458a3.95 3.95 0 0 0-.643-.361 5.093 5.093 0 0 0-.71-.244 4.807 4.807 0 0 0-.82-.132 4.417 4.417 0 0 0-.742.062c-.22.04-.4.12-.54.24a.8.8 0 0 0-.21.57c0 .18.05.33.15.45.1.12.24.22.42.31.18.09.4.17.66.25.26.08.54.17.84.26.42.14.8.31 1.14.5.34.19.62.42.84.69.22.27.38.58.48.93.1.35.15.75.15 1.2 0 .6-.1 1.14-.3 1.62a3.86 3.86 0 0 1-.84 1.26 4.3 4.3 0 0 1-1.35.84 5.3 5.3 0 0 1-1.8.3c-.64 0-1.24-.05-1.8-.15a6.9 6.9 0 0 1-1.5-.42v-2.58c.24.16.53.31.87.45.34.14.71.25 1.11.33.4.08.8.12 1.2.12.38 0 .72-.05 1.02-.15.3-.1.54-.24.72-.42.18-.18.3-.39.36-.63.06-.24.09-.49.09-.75 0-.24-.04-.45-.12-.63a1.44 1.44 0 0 0-.36-.48 2.54 2.54 0 0 0-.6-.36c-.24-.12-.52-.24-.84-.36-.42-.15-.81-.32-1.17-.51a3.02 3.02 0 0 1-.9-.75 2.5 2.5 0 0 1-.54-1.02c-.12-.39-.18-.84-.18-1.35 0-.58.11-1.1.33-1.56.22-.46.54-.85.96-1.17.42-.32.93-.56 1.53-.72a7.88 7.88 0 0 1 1.95-.24zm-8.868.18v2.34h-2.19v11.43H5.61V12.27H3.42V9.93z"/></svg> TYPESCRIPT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-react text-xl sm:text-2xl text-white"></i> REACT.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 180 180"><path d="M90 0a90 90 0 1090 90A90.1 90.1 0 0090 0zM45 138V42h16.2l34.2 55.8V42h13.8v96h-15l-35.4-57.6V138zm84.6-21.6l-19.8-31.2 9-13.8 22.8 35.4z"/></svg> NEXT.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-6 h-6 text-white fill-current" viewBox="0 0 24 24"><path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C7.666 17.818 9.027 19.2 12.001 19.2c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z"/></svg> TAILWIND</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M18.8 20.3L12 1.5 5.5 13.9l13.3 6.4zM12 4.4l4.9 13.5-9.6-4.6L12 4.4z"/></svg> PRISMA</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-arrows-rotate text-xl sm:text-2xl text-white"></i> REACT QUERY</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-network-wired text-xl sm:text-2xl text-white"></i> AXIOS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-database text-xl sm:text-2xl text-white"></i> POSTGRESQL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><svg class="w-5 h-5 text-white fill-current" viewBox="0 0 24 24"><path d="M12 1L24 22H0L12 1z"/></svg> VERCEL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-node-js text-xl sm:text-2xl text-white"></i> NODE.JS</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-python text-xl sm:text-2xl text-white"></i> PYTHON</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-database text-xl sm:text-2xl text-white"></i> MYSQL</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-figma text-xl sm:text-2xl text-white"></i> FIGMA</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-git-alt text-xl sm:text-2xl text-white"></i> GIT</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-brands fa-github text-xl sm:text-2xl text-white"></i> GITHUB</div>
+                        <div class="flex items-center gap-3.5 whitespace-nowrap"><i class="fa-solid fa-microchip text-xl sm:text-2xl text-white"></i> IOT & HARDWARE</div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <section id="projetos" data-section="03" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden">
+            <div class="max-w-4xl w-full mx-auto space-y-6">
+                <div class="text-center space-y-2 scroll-reveal">
+                    <span data-i18n="projetos.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.03 // PROJETO EM DESTAQUE</span>
+                    <h2 data-i18n="projetos.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">PROJETO EM DESTAQUE</h2>
+                </div>
+
+                <div class="w-full flex justify-center">
+                    <div class="project-card w-full max-w-xl flex flex-col items-center">
+                        <div class="project-image-box w-full relative opacity-100 scale-100 filter-none scroll-reveal-scale delay-150">
+                            <a href="https://www.smartgarage.tech/" target="_blank" rel="noopener noreferrer" class="block w-full h-[220px] sm:h-[260px] md:h-[280px] bg-zinc-900 rounded-none border-none relative group shadow-2xl overflow-hidden">
+                                <img src="smartgarage_preview.png" alt="Projeto SmartGarage SaaS" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-80 group-hover:opacity-40 transition-opacity"></div>
+                                <div class="absolute bottom-4 right-4 bg-black/70 backdrop-blur-md px-3.5 py-1.5 rounded-full text-[10px] font-mono uppercase tracking-widest text-white flex items-center gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                                    <span data-i18n="projetos.btn">VER PROJETO</span> <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                                </div>
+                            </a>
+                            <div class="w-full h-[35px] sm:h-[45px] overflow-hidden relative pointer-events-none -mt-[1px] select-none">
+                                <img src="smartgarage_preview.png" alt="Reflection" class="w-full h-full object-cover scale-y-[-1] opacity-50 filter blur-[0.5px]">
+                                <div class="absolute inset-0 bg-gradient-to-b from-transparent via-[#121212]/60 to-[#121212]"></div>
+                            </div>
+                        </div>
+                        <div class="project-info opacity-100 transform-none pointer-events-auto space-y-2 text-center w-full px-2 mt-2">
+                            <h3 class="font-syne font-extrabold text-xl sm:text-2xl md:text-3xl text-white uppercase tracking-wider leading-none text-center scroll-reveal delay-250">
+                                SMARTGARAGE.TECH
+                            </h3>
+                            <p data-i18n="projetos.desc" class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto pt-1 font-light scroll-reveal delay-350">
+                                Plataforma SaaS completa para gestão inteligente de oficinas mecânicas. Inclui controle de ordens de serviço, relatórios dinâmicos, gráficos em tempo real e geração automática de PDFs.
+                            </p>
+                            <div class="flex items-center justify-center gap-2 pt-2 flex-wrap text-xs text-gray-300 scroll-reveal delay-450">
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-gray-300">
+                                    <i class="fa-brands fa-react text-cyan-400"></i> React.js
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-gray-300">
+                                    <i class="fa-solid fa-code text-blue-400"></i> TypeScript
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-gray-300">
+                                    <i class="fa-solid fa-bolt text-yellow-400"></i> Vite
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-gray-300">
+                                    <i class="fa-solid fa-wind text-sky-400"></i> Tailwind CSS
+                                </span>
+                                <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/5 border border-white/10 text-[11px] font-mono text-gray-300">
+                                    <i class="fa-solid fa-file-pdf text-red-400"></i> PDF Generator
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="trajetoria" data-section="04" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden py-10 sm:py-12">
+            <div class="max-w-5xl w-full mx-auto space-y-6 sm:space-y-8">
+                <div class="text-center space-y-2 scroll-reveal">
+                    <span data-i18n="trajetoria.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.04 // JORNADA</span>
+                    <h2 data-i18n="trajetoria.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">TRAJETÓRIA</h2>
+                </div>
+
+                <div class="relative max-w-4xl w-full mx-auto py-2">
+                    
+                    <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/20 via-white/10 to-white/5 md:-translate-x-1/2"></div>
+
+                    <div class="space-y-5 sm:space-y-6 md:space-y-8 relative">
+                        
+                        <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-left delay-100">
+                            <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right">
+                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t1_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2023.2 — 1º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t1_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Início em Análise e Desenvolvimento de Sistemas</h3>
+                                    <p data-i18n="trajetoria.t1_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Inicialização da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs.</p>
+                                </div>
+                            </div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="hidden md:block w-[46%]"></div>
+                        </div>
+
+                        <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-right delay-200">
+                            <div class="hidden md:block w-[46%]"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-left">
+                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t2_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2025.2 — 5º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t2_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Início do TCC</h3>
+                                    <p data-i18n="trajetoria.t2_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Inicialização do desenvolvimento do projeto SmartGarage no 5º semestre para o Trabalho de Conclusão de Curso.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-left delay-300">
+                            <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right">
+                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t3_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2025.2 — HACKATHON</span>
+                                    <h3 data-i18n="trajetoria.t3_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">2º Lugar - Hackapel (2025)</h3>
+                                    <p data-i18n="trajetoria.t3_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Desenvolvimento de solução integral para a saúde pública, unificando agendamento, redução de absenteísmo e comunicação em massa em uma única plataforma.</p>
+                                    <div class="flex items-center justify-end gap-1.5 pt-2.5 flex-wrap text-xs text-gray-300">
+                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">HTML</span>
+                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">CSS</span>
+                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">JavaScript</span>
+                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">Python</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="hidden md:block w-[46%]"></div>
+                        </div>
+
+                        <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-right delay-400">
+                            <div class="hidden md:block w-[46%]"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-left">
+                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t4_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2026.1 — 6º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t4_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Conclusão em Análise e Desenvolvimento de Sistemas</h3>
+                                    <p data-i18n="trajetoria.t4_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Conclusão da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs no 6º semestre.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contato" data-section="05" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-6 relative">
+            <div class="max-w-4xl w-full mx-auto space-y-8 text-center">
+                <div class="space-y-3 scroll-reveal">
+                    <span data-i18n="contato.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.05 // CONTATO</span>
+                    <div class="w-full flex justify-center">
+                        <h2 data-i18n="contato.title" class="font-syne font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight typewriter-title inline-block">VAMOS CRIAR ALGO JUNTOS?</h2>
+                    </div>
+                    <p data-i18n="contato.sub" class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto scroll-reveal delay-150">
+                        Estou disponível para novos projetos, colaborações e oportunidades de desenvolvimento fullstack.
+                    </p>
+                </div>
+
+                <div class="glass-panel rounded-2xl p-5 sm:p-6 flex items-center justify-between gap-4 max-w-xl mx-auto scroll-reveal-scale delay-250">
+                    <div class="flex items-center gap-3.5 text-left">
+                        <div class="w-11 h-11 rounded-full bg-white/5 border border-white/10 text-white flex items-center justify-center">
+                            <i class="fa-solid fa-envelope text-base sm:text-lg text-white"></i>
+                        </div>
+                        <div>
+                            <span data-i18n="contato.email_label" class="text-[10px] uppercase tracking-widest text-gray-500 font-mono block">E-MAIL DIRETO</span>
+                            <span id="email-address" class="font-mono text-xs sm:text-base font-semibold text-white">christianhbening@gmail.com</span>
+                        </div>
+                    </div>
+                    <button id="copy-email-btn" onclick="copyEmailToClipboard()" title="Copiar E-mail" aria-label="Copiar E-mail" class="glass-button p-3 rounded-xl text-white flex items-center justify-center transition-all hover:scale-105">
+                        <i class="fa-solid fa-copy text-sm" id="copy-icon"></i>
+                    </button>
+                </div>
+
+                <div class="flex items-center justify-center gap-4 pt-4 scroll-reveal delay-350">
+                    <a href="https://www.linkedin.com/in/christian-bening-aaa30528a/" target="_blank" rel="noopener noreferrer" class="glass-button px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-gray-300 flex items-center gap-2 hover:text-white transition-colors">
+                        <i class="fa-brands fa-linkedin text-lg text-sky-400"></i> LinkedIn
+                    </a>
+                    <a href="https://github.com/Chr1sBg" target="_blank" rel="noopener noreferrer" class="glass-button px-5 py-2.5 rounded-full text-xs font-semibold uppercase tracking-widest text-gray-300 flex items-center gap-2 hover:text-white transition-colors">
+                        <i class="fa-brands fa-github text-lg text-white"></i> GitHub
+                    </a>
+                </div>
+
+                <div data-i18n="contato.footer" class="pt-8 text-xs text-gray-600 font-mono uppercase tracking-widest scroll-reveal delay-450">
+                    © 2026 CHRISTIAN — TODOS OS DIREITOS RESERVADOS
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="https://unpkg.com/embla-carousel/embla-carousel.umd.js"></script>
+
+    <script>
+        if ('scrollRestoration' in history) {
+            history.scrollRestoration = 'manual';
+        }
+        window.scrollTo(0, 0);
+
+        window.addEventListener('beforeunload', () => {
+            window.scrollTo(0, 0);
+        });
+
+        const i18n = {
+            pt: {
+                'nav.sobre': 'Sobre',
+                'nav.projetos': 'Projetos',
+                'nav.trajetoria': 'Trajetória',
+                'nav.contato': 'Contato',
+                'side.01': '.01 HERO',
+                'side.02': '.02 SOBRE',
+                'side.03': '.03 PROJETOS',
+                'side.04': '.04 TRAJETÓRIA',
+                'side.05': '.05 CONTATO',
+                'hero.subtitle': 'EU SOU',
+                'hero.tagline': 'DESENVOLVEDOR FULLSTACK',
+                'sobre.tag': '.02 // APRESENTAÇÃO',
+                'sobre.title': 'SOBRE MIM',
+                'sobre.p1': 'Sou desenvolvedor Fullstack focado em criar aplicações web completas, do visual até a lógica do servidor. Gosto de construir sistemas rápidos, organizados e práticos para o dia a dia.',
+                'sobre.p2': 'Minha stack principal inclui React.js, Next.js, Node.js, TypeScript e Prisma. Além da Web, também tenho bastante interesse e conhecimento prático em IoT, conectando hardware e dispositivos inteligentes a interfaces web.',
+                'projetos.tag': '.03 // PROJETO EM DESTAQUE',
+                'projetos.title': 'PROJETO EM DESTAQUE',
+                'projetos.btn': 'VER PROJETO',
+                'projetos.desc': 'Plataforma SaaS completa para gestão inteligente de oficinas mecânicas. Inclui controle de ordens de serviço, relatórios dinâmicos, gráficos em tempo real e geração automática de PDFs.',
+                'trajetoria.tag': '.04 // JORNADA',
+                'trajetoria.title': 'TRAJETÓRIA',
+                'trajetoria.t1_date': '2023.2 — 1º SEMESTRE',
+                'trajetoria.t1_title': 'Início em Análise e Desenvolvimento de Sistemas',
+                'trajetoria.t1_desc': 'Inicialização da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs.',
+                'trajetoria.t2_date': '2025.2 — 5º SEMESTRE',
+                'trajetoria.t2_title': 'Início do TCC',
+                'trajetoria.t2_desc': 'Inicialização do desenvolvimento do projeto SmartGarage no 5º semestre para o Trabalho de Conclusão de Curso.',
+                'trajetoria.t3_date': '2025.2 — HACKATHON',
+                'trajetoria.t3_title': '2º Lugar - Hackapel (2025)',
+                'trajetoria.t3_desc': 'Desenvolvimento de solução integral para a saúde pública, unificando agendamento, redução de absenteísmo e comunicação em massa em uma única plataforma.',
+                'trajetoria.t4_date': '2026.1 — 6º SEMESTRE',
+                'trajetoria.t4_title': 'Conclusão em Análise e Desenvolvimento de Sistemas',
+                'trajetoria.t4_desc': 'Conclusão da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs no 6º semestre.',
+                'contato.tag': '.05 // CONTATO',
+                'contato.title': 'VAMOS CRIAR ALGO JUNTOS?',
+                'contato.sub': 'Estou disponível para novos projetos, colaborações e oportunidades de desenvolvimento fullstack.',
+                'contato.email_label': 'E-MAIL DIRETO',
+                'contato.footer': '© 2026 CHRISTIAN — TODOS OS DIREITOS RESERVADOS'
+            },
+            en: {
+                'nav.sobre': 'About',
+                'nav.projetos': 'Projects',
+                'nav.trajetoria': 'Career',
+                'nav.contato': 'Contact',
+                'side.01': '.01 HERO',
+                'side.02': '.02 ABOUT',
+                'side.03': '.03 PROJECTS',
+                'side.04': '.04 CAREER',
+                'side.05': '.05 CONTACT',
+                'hero.subtitle': 'I AM',
+                'hero.tagline': 'FULLSTACK DEVELOPER',
+                'sobre.tag': '.02 // ABOUT ME',
+                'sobre.title': 'ABOUT ME',
+                'sobre.p1': 'I am a Fullstack Developer focused on creating complete web applications, from visual design to server logic. I enjoy building fast, organized, and practical systems for everyday use.',
+                'sobre.p2': 'My primary stack includes React.js, Next.js, Node.js, TypeScript, and Prisma. Beyond the web, I also have a strong interest and practical experience in IoT, connecting hardware and smart devices to web interfaces.',
+                'projetos.tag': '.03 // FEATURED PROJECT',
+                'projetos.title': 'FEATURED PROJECT',
+                'projetos.btn': 'VIEW PROJECT',
+                'projetos.desc': 'Complete SaaS platform for intelligent auto repair shop management. Includes work order control, dynamic reporting, real-time analytics, and automatic PDF generation.',
+                'trajetoria.tag': '.04 // JOURNEY',
+                'trajetoria.title': 'CAREER',
+                'trajetoria.t1_date': '2023.2 — 1ST SEMESTER',
+                'trajetoria.t1_title': 'Started Systems Analysis & Development',
+                'trajetoria.t1_desc': 'Enrolled in the Systems Analysis and Development degree at Senac RS.',
+                'trajetoria.t2_date': '2025.2 — 5TH SEMESTER',
+                'trajetoria.t2_title': 'Started Graduation Thesis',
+                'trajetoria.t2_desc': 'Began development of the SmartGarage project in the 5th semester for the final graduation thesis.',
+                'trajetoria.t3_date': '2025.2 — HACKATHON',
+                'trajetoria.t3_title': '2nd Place - Hackapel (2025)',
+                'trajetoria.t3_desc': 'Developed a comprehensive public health solution unifying appointment scheduling, absenteeism reduction, and mass communication into a single platform.',
+                'trajetoria.t4_date': '2026.1 — 6TH SEMESTER',
+                'trajetoria.t4_title': 'Graduated in Systems Analysis & Development',
+                'trajetoria.t4_desc': 'Graduated in Systems Analysis and Development at Senac RS in the 6th semester.',
+                'contato.tag': '.05 // CONTACT',
+                'contato.title': "LET'S CREATE SOMETHING TOGETHER?",
+                'contato.sub': 'I am available for new projects, collaborations, and fullstack development opportunities.',
+                'contato.email_label': 'DIRECT EMAIL',
+                'contato.footer': '© 2026 CHRISTIAN — ALL RIGHTS RESERVED'
+            }
+        };
+
+        let currentLang = 'pt';
+        let isLangTransitioning = false;
+
+        function toggleLanguage(e) {
+            if (isLangTransitioning) return;
+            isLangTransitioning = true;
+
+            const btn = document.getElementById('lang-toggle-btn');
+            const overlay = document.getElementById('lang-ripple-overlay');
+            
+            let clickX = window.innerWidth - 60;
+            let clickY = 30;
+
+            if (btn) {
+                const rect = btn.getBoundingClientRect();
+                clickX = rect.left + rect.width / 2;
+                clickY = rect.top + rect.height / 2;
+            } else if (e && e.clientX) {
+                clickX = e.clientX;
+                clickY = e.clientY;
+            }
+
+            const maxDistX = Math.max(clickX, window.innerWidth - clickX);
+            const maxDistY = Math.max(clickY, window.innerHeight - clickY);
+            const maxRadius = Math.ceil(Math.hypot(maxDistX, maxDistY)) + 20;
+
+            const animDuration = 800;
+            const midPoint = animDuration / 2;
+
+            if (overlay) {
+                overlay.style.setProperty('--ripple-x', `${clickX}px`);
+                overlay.style.setProperty('--ripple-y', `${clickY}px`);
+                overlay.style.setProperty('--ripple-max-radius', `${maxRadius}px`);
+                overlay.style.pointerEvents = 'none';
+                overlay.classList.remove('ripple-expanding');
+                void overlay.offsetWidth;
+                overlay.classList.add('ripple-expanding');
+            }
+
+            const nextLang = currentLang === 'pt' ? 'en' : 'pt';
+
+            setTimeout(() => {
+                currentLang = nextLang;
+                
+                const langLabel = document.getElementById('lang-label');
+                if (langLabel) {
+                    langLabel.textContent = currentLang.toUpperCase();
+                }
+
+                const targets = document.querySelectorAll('[data-i18n]');
+                targets.forEach(el => {
+                    const key = el.getAttribute('data-i18n');
+                    if (i18n[currentLang] && i18n[currentLang][key]) {
+                        if (el.classList.contains('typewriter-title')) {
+                            el.dataset.fullText = i18n[currentLang][key];
+                            el.dataset.hasTyped = 'false';
+                            runTypewriter(el);
+                        } else {
+                            el.textContent = i18n[currentLang][key];
+                        }
+                    }
+                });
+            }, midPoint);
+
+            setTimeout(() => {
+                if (overlay) {
+                    overlay.classList.remove('ripple-expanding');
+                    overlay.style.pointerEvents = 'none';
+                }
+                isLangTransitioning = false;
+            }, animDuration);
+        }
+
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+        function runHeroStaggerAnimation() {
+            const staggerElements = document.querySelectorAll('.hero-stagger');
+            staggerElements.forEach((el, index) => {
+                setTimeout(() => {
+                    el.classList.add('stagger-in');
+                }, index * 140);
+            });
+        }
+
+        function initPreloader() {
+            const words = document.querySelectorAll('.preloader-word');
+            const preloader = document.getElementById('preloader');
+
+            window.scrollTo(0, 0);
+
+            if (!words.length || !preloader) return;
+
+            setTimeout(() => {
+                words[0].classList.add('active');
+            }, 150);
+
+            setTimeout(() => {
+                words[0].classList.remove('active');
+                words[0].classList.add('exit');
+            }, 850);
+
+            setTimeout(() => {
+                words[1].classList.add('active');
+            }, 950);
+
+            setTimeout(() => {
+                words[1].classList.remove('active');
+                words[1].classList.add('exit');
+            }, 1650);
+
+            setTimeout(() => {
+                words[2].classList.add('active');
+            }, 1750);
+
+            setTimeout(() => {
+                words[2].classList.remove('active');
+                words[2].classList.add('exit');
+            }, 2450);
+
+            setTimeout(() => {
+                preloader.classList.add('slide-up');
+                document.body.classList.remove('overflow-hidden');
+            }, 2650);
+
+            setTimeout(() => {
+                runHeroStaggerAnimation();
+            }, 2900);
+        }
+
+        window.addEventListener('DOMContentLoaded', initPreloader);
+
+        const emblaNode = document.getElementById('embla-projects');
+        let emblaApi;
+
+        function updateEmblaSlideClasses() {
+            if (!emblaApi) return;
+            const selectedIndex = emblaApi.selectedScrollSnap();
+            const slides = emblaApi.slideNodes();
+
+            slides.forEach((slide, index) => {
+                if (index === selectedIndex) {
+                    slide.classList.add('is-selected');
+                } else {
+                    slide.classList.remove('is-selected');
+                }
+            });
+        }
+
+        if (emblaNode) {
+            emblaApi = EmblaCarousel(emblaNode, {
+                loop: true,
+                align: 'center',
+                skipSnaps: false
+            });
+
+            emblaApi.on('select', updateEmblaSlideClasses);
+            emblaApi.on('init', updateEmblaSlideClasses);
+            emblaApi.on('reInit', updateEmblaSlideClasses);
+            emblaApi.on('settle', updateEmblaSlideClasses);
+
+            emblaApi.slideNodes().forEach((slide, index) => {
+                slide.addEventListener('click', (e) => {
+                    if (emblaApi.selectedScrollSnap() !== index) {
+                        e.preventDefault();
+                        emblaApi.scrollTo(index);
+                    }
+                });
+            });
+
+            updateEmblaSlideClasses();
+
+            window.addEventListener('load', () => {
+                emblaApi.reInit();
+                updateEmblaSlideClasses();
+            });
+
+            let autoplayTimer = setInterval(() => {
+                if (emblaApi) emblaApi.scrollNext();
+            }, 3800);
+
+            emblaNode.addEventListener('mouseenter', () => clearInterval(autoplayTimer));
+            emblaNode.addEventListener('mouseleave', () => {
+                autoplayTimer = setInterval(() => {
+                    if (emblaApi) emblaApi.scrollNext();
+                }, 3800);
+            });
+        }
+
+        const allSections = Array.from(document.querySelectorAll('section[data-section]'));
+        const currentNumEl = document.getElementById('current-section-num');
+        const sectionIndicators = {
+            '01': document.getElementById('indicator-01'),
+            '02': document.getElementById('indicator-02'),
+            '03': document.getElementById('indicator-03'),
+            '04': document.getElementById('indicator-04'),
+            '05': document.getElementById('indicator-05'),
+        };
+
+        let currentSecIdx = 0;
+        let isSectionLocking = false;
+
+        function updateActiveIndicator(idx) {
+            currentSecIdx = idx;
+            const targetSec = allSections[idx];
+            if (!targetSec) return;
+
+            const sectionNum = targetSec.getAttribute('data-section');
+            if (sectionNum && currentNumEl) {
+                currentNumEl.textContent = `.${sectionNum}`;
+                Object.keys(sectionIndicators).forEach(key => {
+                    const el = sectionIndicators[key];
+                    if (el) {
+                        if (key === sectionNum) {
+                            el.classList.remove('opacity-40');
+                            el.classList.add('opacity-100', 'text-white', 'font-bold');
+                        } else {
+                            el.classList.remove('opacity-100', 'text-white', 'font-bold');
+                            el.classList.add('opacity-40');
+                        }
+                    }
+                });
+            }
+        }
+
+        function smoothScrollTo(targetY, duration = 480) {
+            const startY = window.scrollY || window.pageYOffset;
+            const distance = targetY - startY;
+            
+            if (Math.abs(distance) < 2) {
+                isSectionLocking = false;
+                return;
+            }
+
+            let startTime = null;
+
+            function animation(currentTime) {
+                if (!startTime) startTime = currentTime;
+                const timeElapsed = currentTime - startTime;
+                const progress = Math.min(timeElapsed / duration, 1);
+
+                const ease = 1 - Math.pow(1 - progress, 3);
+
+                window.scrollTo(0, startY + distance * ease);
+
+                if (timeElapsed < duration) {
+                    requestAnimationFrame(animation);
+                } else {
+                    window.scrollTo(0, targetY);
+                    isSectionLocking = false;
+                }
+            }
+
+            requestAnimationFrame(animation);
+        }
+
+        function goToSection(targetIndex) {
+            if (targetIndex < 0 || targetIndex >= allSections.length || isSectionLocking) return;
+            
+            isSectionLocking = true;
+            currentSecIdx = targetIndex;
+            updateActiveIndicator(targetIndex);
+
+            const targetSection = allSections[targetIndex];
+            const targetY = targetSection.getBoundingClientRect().top + (window.scrollY || window.pageYOffset);
+
+            smoothScrollTo(targetY, 480);
+        }
+
+        window.addEventListener('wheel', (e) => {
+            if (prefersReducedMotion) return;
+            
+            e.preventDefault();
+
+            if (isSectionLocking) return;
+
+            if (e.deltaY > 1) {
+                goToSection(currentSecIdx + 1);
+            } else if (e.deltaY < -1) {
+                goToSection(currentSecIdx - 1);
+            }
+        }, { passive: false });
+
+        let touchStartY = 0;
+        let touchStartX = 0;
+
+        window.addEventListener('touchstart', (e) => {
+            if (e.touches && e.touches.length) {
+                touchStartY = e.touches[0].clientY;
+                touchStartX = e.touches[0].clientX;
+            }
+        }, { passive: true });
+
+        window.addEventListener('touchmove', (e) => {
+            if (!prefersReducedMotion && isSectionLocking) {
+                e.preventDefault();
+            }
+        }, { passive: false });
+
+        window.addEventListener('touchend', (e) => {
+            if (prefersReducedMotion || isSectionLocking || !e.changedTouches || !e.changedTouches.length) return;
+
+            const touchEndY = e.changedTouches[0].clientY;
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffY = touchStartY - touchEndY;
+            const diffX = touchStartX - touchEndX;
+
+            if (Math.abs(diffY) > 20 && Math.abs(diffY) > Math.abs(diffX)) {
+                if (diffY > 0) {
+                    goToSection(currentSecIdx + 1);
+                } else {
+                    goToSection(currentSecIdx - 1);
+                }
+            }
+        }, { passive: true });
+
+        window.addEventListener('keydown', (e) => {
+            if (['ArrowDown', 'PageDown', 'Space'].includes(e.code) && !e.shiftKey) {
+                e.preventDefault();
+                goToSection(currentSecIdx + 1);
+            } else if (['ArrowUp', 'PageUp'].includes(e.code) || (e.code === 'Space' && e.shiftKey)) {
+                e.preventDefault();
+                goToSection(currentSecIdx - 1);
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId && targetId !== '#') {
+                    e.preventDefault();
+                    const targetEl = document.querySelector(targetId);
+                    if (targetEl) {
+                        const targetIdx = allSections.indexOf(targetEl);
+                        if (targetIdx !== -1) {
+                            goToSection(targetIdx);
+                        }
+                    }
+                }
+            });
+        });
+
+        const observerOptions = {
+            root: null,
+            threshold: 0.4
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting && !isSectionLocking) {
+                    const idx = allSections.indexOf(entry.target);
+                    if (idx !== -1) {
+                        updateActiveIndicator(idx);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        allSections.forEach(sec => observer.observe(sec));
+
+        const scrollRevealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, { root: null, threshold: 0.08 });
+
+        document.querySelectorAll('.scroll-reveal, .scroll-reveal-left, .scroll-reveal-right, .scroll-reveal-scale').forEach(el => {
+            scrollRevealObserver.observe(el);
+        });
+
+        function copyEmailToClipboard() {
+            const emailText = document.getElementById('email-address').textContent;
+            const copyIcon = document.getElementById('copy-icon');
+
+            navigator.clipboard.writeText(emailText).then(() => {
+                if (copyIcon) copyIcon.className = 'fa-solid fa-check text-sm text-emerald-400';
+
+                setTimeout(() => {
+                    if (copyIcon) copyIcon.className = 'fa-solid fa-copy text-sm';
+                }, 2000);
+            }).catch(err => {
+                console.error('Erro ao copiar e-mail: ', err);
+            });
+        }
+
+        const typewriterElements = document.querySelectorAll('.typewriter-title');
+        
+        typewriterElements.forEach(el => {
+            el.dataset.fullText = el.textContent.trim();
+        });
+
+        function runTypewriter(el) {
+            if (el.dataset.hasTyped === 'true') return;
+            el.dataset.hasTyped = 'true';
+            
+            const targetText = el.dataset.fullText || '';
+            el.textContent = '';
+            el.classList.add('typewriter-cursor');
+            
+            let charIndex = 0;
+            const typingInterval = setInterval(() => {
+                if (charIndex < targetText.length) {
+                    el.textContent += targetText.charAt(charIndex);
+                    charIndex++;
+                } else {
+                    clearInterval(typingInterval);
+                    setTimeout(() => {
+                        el.classList.remove('typewriter-cursor');
+                    }, 800);
+                }
+            }, 60);
+        }
+
+        const typewriterObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    runTypewriter(entry.target);
+                }
+            });
+        }, { root: null, threshold: 0.1 });
+
+        typewriterElements.forEach(el => typewriterObserver.observe(el));
+    </script>
+</body>
+</html>
