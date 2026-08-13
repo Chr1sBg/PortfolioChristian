@@ -365,22 +365,22 @@
 
     <div id="preloader" class="fixed inset-0 z-[100] bg-[#121212] flex items-center justify-center transition-transform duration-1000 ease-[cubic-bezier(0.77,0,0.175,1)] pointer-events-auto">
         <div class="relative flex items-center justify-center w-full max-w-xl h-24">
-            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">CREATIVITY</span>
-            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">PERFORMANCE</span>
-            <span class="preloader-word absolute font-syne font-extrabold text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">INNOVATION</span>
+            <span class="preloader-word absolute font-syne font-extrabold text-xl min-[380px]:text-2xl min-[480px]:text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-wider sm:tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">CREATIVITY</span>
+            <span class="preloader-word absolute font-syne font-extrabold text-xl min-[380px]:text-2xl min-[480px]:text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-wider sm:tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">PERFORMANCE</span>
+            <span class="preloader-word absolute font-syne font-extrabold text-xl min-[380px]:text-2xl min-[480px]:text-3xl sm:text-5xl md:text-6xl text-white uppercase tracking-wider sm:tracking-widest opacity-0 scale-90 blur-sm transition-all duration-500 ease-out whitespace-nowrap">INNOVATION</span>
         </div>
     </div>
 
     <div class="fixed inset-0 pointer-events-none z-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.03)_0%,rgba(26,26,26,1)_75%)]"></div>
 
     <header class="fixed top-0 left-0 right-0 z-50 px-6 md:px-12 py-4 flex justify-between items-center bg-[#121212] border-b border-white/5 shadow-lg transition-all duration-300 hero-stagger" id="main-header">
-        <a href="#hero" class="flex flex-col font-syne font-extrabold text-xl md:text-2xl text-white uppercase leading-[0.8] hover:opacity-80 transition-opacity w-max perspective-container">
+        <a href="#hero" class="flex flex-col font-syne font-extrabold text-xl md:text-2xl text-white uppercase leading-none hover:opacity-80 transition-opacity w-max perspective-container">
             <span class="tracking-[0.14em] inline-flex">
                 <span class="logo-flip">C</span>
                 <span class="logo-flip">H</span>
                 <span class="logo-flip">R</span>
             </span>
-            <span class="tracking-[0.22em] -mt-1 md:-mt-1.5 inline-flex">
+            <span class="tracking-[0.22em] mt-0.5 inline-flex">
                 <span class="logo-flip">D</span>
                 <span class="logo-flip">E</span>
                 <span class="logo-flip">V</span>
@@ -426,16 +426,16 @@
 
     <main class="w-full relative z-10" id="main-scroll-container">
 
-        <section id="hero" data-section="01" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-6 sm:px-12 relative">
+        <section id="hero" data-section="01" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-4 sm:px-12 relative">
             <div class="w-full max-w-5xl mx-auto flex flex-col items-center justify-center relative" id="hero-content">
                 
-                <div class="w-full flex justify-start pl-2 sm:pl-8 md:pl-12 mb-1 hero-stagger" id="hero-subtitle">
-                    <span data-i18n="hero.subtitle" class="text-xs sm:text-sm uppercase tracking-[0.4em] text-gray-400 font-semibold">
+                <div class="w-full flex justify-start pl-1 sm:pl-8 md:pl-12 mb-1 hero-stagger" id="hero-subtitle">
+                    <span data-i18n="hero.subtitle" class="text-[10px] sm:text-sm uppercase tracking-[0.25em] sm:tracking-[0.4em] text-gray-400 font-semibold">
                         EU SOU
                     </span>
                 </div>
 
-                <h1 class="font-syne font-extrabold text-5xl sm:text-7xl md:text-9xl text-white tracking-tight leading-none uppercase select-none drop-shadow-2xl text-center my-2 flex justify-center items-center gap-0.5 sm:gap-1.5 md:gap-2 perspective-container hero-stagger" id="hero-title">
+                <h1 class="font-syne font-extrabold text-3xl min-[380px]:text-4xl min-[480px]:text-5xl sm:text-7xl md:text-9xl text-white tracking-tight leading-none uppercase select-none drop-shadow-2xl text-center my-2 flex justify-center items-center gap-0.5 sm:gap-1.5 md:gap-2 perspective-container hero-stagger" id="hero-title">
                     <span class="flip-char">C</span>
                     <span class="flip-char">H</span>
                     <span class="flip-char">R</span>
@@ -447,8 +447,8 @@
                     <span class="flip-char">N</span>
                 </h1>
 
-                <div class="w-full flex justify-end pr-2 sm:pr-8 md:pr-12 mt-2 hero-stagger" id="hero-tagline">
-                    <p data-i18n="hero.tagline" class="text-xs sm:text-sm md:text-base uppercase tracking-[0.35em] text-gray-400 font-medium">
+                <div class="w-full flex justify-end pr-1 sm:pr-8 md:pr-12 mt-2 hero-stagger" id="hero-tagline">
+                    <p data-i18n="hero.tagline" class="text-[10px] min-[380px]:text-xs sm:text-sm md:text-base uppercase tracking-[0.2em] min-[380px]:tracking-[0.3em] sm:tracking-[0.35em] text-gray-400 font-medium">
                         DESENVOLVEDOR FULLSTACK
                     </p>
                 </div>
@@ -460,11 +460,11 @@
             </div>
         </section>
 
-        <section id="sobre" data-section="02" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-between items-center py-16 md:py-20 relative overflow-hidden">
+        <section id="sobre" data-section="02" class="min-h-screen w-full snap-start flex flex-col justify-between items-center py-20 sm:py-24 relative">
             <div class="max-w-4xl w-full mx-auto space-y-8 px-6 my-auto text-center">
                 <div class="space-y-2 scroll-reveal">
                     <span data-i18n="sobre.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.02 // APRESENTAÇÃO</span>
-                    <h2 data-i18n="sobre.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">SOBRE MIM</h2>
+                    <h2 data-i18n="sobre.title" class="font-syne font-extrabold text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-wider typewriter-title">SOBRE MIM</h2>
                 </div>
 
                 <div class="space-y-6 text-gray-300 text-base sm:text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-light text-center">
@@ -477,7 +477,9 @@
                 </div>
             </div>
 
-            <div class="w-full overflow-hidden relative py-6 sm:py-8 border-y border-white/5 bg-white/[0.01] scroll-reveal-scale delay-350">
+            <div class="w-full flex flex-col items-center gap-2 mt-auto">
+                <span data-i18n="sobre.stack" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono scroll-reveal delay-300">TECH STACK</span>
+                <div class="w-full overflow-hidden relative py-6 sm:py-8 border-y border-white/5 bg-white/[0.01] scroll-reveal-scale delay-350">
                 <div class="animate-marquee items-center text-sm sm:text-base font-semibold uppercase tracking-widest text-gray-300">
                     
                     <div class="flex items-center gap-12 sm:gap-16 pr-12 sm:pr-16">
@@ -528,11 +530,11 @@
             </div>
         </section>
 
-        <section id="projetos" data-section="03" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden">
+        <section id="projetos" data-section="03" class="min-h-screen w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 py-20 sm:py-24 relative">
             <div class="max-w-4xl w-full mx-auto space-y-6">
                 <div class="text-center space-y-2 scroll-reveal">
                     <span data-i18n="projetos.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.03 // PROJETO EM DESTAQUE</span>
-                    <h2 data-i18n="projetos.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">PROJETO EM DESTAQUE</h2>
+                    <h2 data-i18n="projetos.title" class="font-syne font-extrabold text-xl min-[380px]:text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-wide sm:tracking-wider typewriter-title">PROJETO EM DESTAQUE</h2>
                 </div>
 
                 <div class="w-full flex justify-center">
@@ -551,7 +553,7 @@
                             </div>
                         </div>
                         <div class="project-info opacity-100 transform-none pointer-events-auto space-y-2 text-center w-full px-2 mt-2">
-                            <h3 class="font-syne font-extrabold text-xl sm:text-2xl md:text-3xl text-white uppercase tracking-wider leading-none text-center scroll-reveal delay-250">
+                            <h3 class="font-syne font-extrabold text-base min-[380px]:text-lg sm:text-2xl md:text-3xl text-white uppercase tracking-wide sm:tracking-wider leading-none text-center scroll-reveal delay-250">
                                 SMARTGARAGE.TECH
                             </h3>
                             <p data-i18n="projetos.desc" class="text-gray-400 text-xs sm:text-sm leading-relaxed max-w-lg mx-auto pt-1 font-light scroll-reveal delay-350">
@@ -580,69 +582,69 @@
             </div>
         </section>
 
-        <section id="trajetoria" data-section="04" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 relative overflow-hidden py-10 sm:py-12">
-            <div class="max-w-5xl w-full mx-auto space-y-6 sm:space-y-8">
-                <div class="text-center space-y-2 scroll-reveal">
+        <section id="trajetoria" data-section="04" class="min-h-screen w-full snap-start flex flex-col justify-center items-center px-4 sm:px-6 relative py-12 md:py-16">
+            <div class="max-w-5xl w-full mx-auto space-y-3 sm:space-y-4 flex flex-col items-center">
+                <div class="text-center space-y-1 scroll-reveal shrink-0">
                     <span data-i18n="trajetoria.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.04 // JORNADA</span>
-                    <h2 data-i18n="trajetoria.title" class="font-syne font-extrabold text-3xl md:text-5xl text-white uppercase tracking-wider typewriter-title">TRAJETÓRIA</h2>
+                    <h2 data-i18n="trajetoria.title" class="font-syne font-extrabold text-2xl sm:text-4xl md:text-5xl text-white uppercase tracking-wider typewriter-title">TRAJETÓRIA</h2>
                 </div>
 
-                <div class="relative max-w-4xl w-full mx-auto py-2">
+                <div class="relative max-w-4xl w-full mx-auto py-1">
                     
                     <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-[2px] bg-gradient-to-b from-white/20 via-white/10 to-white/5 md:-translate-x-1/2"></div>
 
-                    <div class="space-y-5 sm:space-y-6 md:space-y-8 relative">
+                    <div class="space-y-2.5 sm:space-y-3 relative">
                         
                         <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-left delay-100">
                             <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right">
-                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
-                                    <span data-i18n="trajetoria.t1_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2023.2 — 1º SEMESTRE</span>
-                                    <h3 data-i18n="trajetoria.t1_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Início em Análise e Desenvolvimento de Sistemas</h3>
-                                    <p data-i18n="trajetoria.t1_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Inicialização da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs.</p>
+                                <div class="glass-panel p-3 sm:p-3.5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t1_date" class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block mb-0.5">2023.2 — 1º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t1_title" class="font-syne font-bold text-xs sm:text-sm text-white uppercase tracking-wide">Início em Análise e Desenvolvimento de Sistemas</h3>
+                                    <p data-i18n="trajetoria.t1_desc" class="text-gray-400 text-[11px] sm:text-xs mt-0.5 leading-snug">Inicialização da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs.</p>
                                 </div>
                             </div>
-                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
                             <div class="hidden md:block w-[46%]"></div>
                         </div>
 
                         <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-right delay-200">
                             <div class="hidden md:block w-[46%]"></div>
-                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
                             <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-left">
-                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
-                                    <span data-i18n="trajetoria.t2_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2025.2 — 5º SEMESTRE</span>
-                                    <h3 data-i18n="trajetoria.t2_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Início do TCC</h3>
-                                    <p data-i18n="trajetoria.t2_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Inicialização do desenvolvimento do projeto SmartGarage no 5º semestre para o Trabalho de Conclusão de Curso.</p>
+                                <div class="glass-panel p-3 sm:p-3.5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t2_date" class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block mb-0.5">2025.2 — 5º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t2_title" class="font-syne font-bold text-xs sm:text-sm text-white uppercase tracking-wide">Início do TCC</h3>
+                                    <p data-i18n="trajetoria.t2_desc" class="text-gray-400 text-[11px] sm:text-xs mt-0.5 leading-snug">Inicialização do desenvolvimento do projeto SmartGarage no 5º semestre para o Trabalho de Conclusão de Curso.</p>
                                 </div>
                             </div>
                         </div>
 
                         <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-left delay-300">
                             <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-right">
-                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
-                                    <span data-i18n="trajetoria.t3_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2025.2 — HACKATHON</span>
-                                    <h3 data-i18n="trajetoria.t3_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">2º Lugar - Hackapel (2025)</h3>
-                                    <p data-i18n="trajetoria.t3_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Desenvolvimento de solução integral para a saúde pública, unificando agendamento, redução de absenteísmo e comunicação em massa em uma única plataforma.</p>
-                                    <div class="flex items-center justify-end gap-1.5 pt-2.5 flex-wrap text-xs text-gray-300">
-                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">HTML</span>
-                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">CSS</span>
-                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">JavaScript</span>
-                                        <span class="px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[10px] font-mono">Python</span>
+                                <div class="glass-panel p-3 sm:p-3.5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t3_date" class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block mb-0.5">2025.2 — HACKATHON</span>
+                                    <h3 data-i18n="trajetoria.t3_title" class="font-syne font-bold text-xs sm:text-sm text-white uppercase tracking-wide">2º Lugar - Hackapel (2025)</h3>
+                                    <p data-i18n="trajetoria.t3_desc" class="text-gray-400 text-[11px] sm:text-xs mt-0.5 leading-snug">Desenvolvimento de solução integral para a saúde pública, unificando agendamento, redução de absenteísmo e comunicação em massa em uma única plataforma.</p>
+                                    <div class="flex items-center justify-end gap-1 pt-1.5 flex-wrap text-xs text-gray-300">
+                                        <span class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono">HTML</span>
+                                        <span class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono">CSS</span>
+                                        <span class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono">JS</span>
+                                        <span class="px-1.5 py-0.5 rounded bg-white/5 border border-white/10 text-[9px] font-mono">Python</span>
                                     </div>
                                 </div>
                             </div>
-                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
                             <div class="hidden md:block w-[46%]"></div>
                         </div>
 
                         <div class="timeline-card relative flex flex-col md:flex-row items-center justify-between group transition-all duration-500 scroll-reveal-right delay-400">
                             <div class="hidden md:block w-[46%]"></div>
-                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
+                            <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-3.5 h-3.5 rounded-full bg-zinc-900 border-2 border-white/40 group-hover:bg-white group-hover:border-white group-hover:scale-125 transition-all duration-300 z-10 shadow-lg"></div>
                             <div class="w-full md:w-[46%] pl-10 md:pl-0 md:text-left">
-                                <div class="glass-panel p-4 sm:p-5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
-                                    <span data-i18n="trajetoria.t4_date" class="font-mono text-[11px] text-gray-400 uppercase tracking-widest block mb-1">2026.1 — 6º SEMESTRE</span>
-                                    <h3 data-i18n="trajetoria.t4_title" class="font-syne font-bold text-base sm:text-lg text-white uppercase tracking-wide">Conclusão em Análise e Desenvolvimento de Sistemas</h3>
-                                    <p data-i18n="trajetoria.t4_desc" class="text-gray-400 text-xs sm:text-sm mt-1.5 leading-relaxed">Conclusão da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs no 6º semestre.</p>
+                                <div class="glass-panel p-3 sm:p-3.5 rounded-xl border border-white/10 hover:border-white/25 transition-all duration-300 group-hover:translate-y-[-2px] group-hover:shadow-2xl">
+                                    <span data-i18n="trajetoria.t4_date" class="font-mono text-[10px] text-gray-400 uppercase tracking-widest block mb-0.5">2026.1 — 6º SEMESTRE</span>
+                                    <h3 data-i18n="trajetoria.t4_title" class="font-syne font-bold text-xs sm:text-sm text-white uppercase tracking-wide">Conclusão em Análise e Desenvolvimento de Sistemas</h3>
+                                    <p data-i18n="trajetoria.t4_desc" class="text-gray-400 text-[11px] sm:text-xs mt-0.5 leading-snug">Conclusão da faculdade de Análise e Desenvolvimento de Sistemas no Senac Rs no 6º semestre.</p>
                                 </div>
                             </div>
                         </div>
@@ -652,12 +654,12 @@
             </div>
         </section>
 
-        <section id="contato" data-section="05" class="min-h-screen h-[100dvh] w-full snap-start flex flex-col justify-center items-center px-6 relative">
+        <section id="contato" data-section="05" class="min-h-screen w-full snap-start flex flex-col justify-center items-center px-6 py-20 sm:py-24 relative">
             <div class="max-w-4xl w-full mx-auto space-y-8 text-center">
                 <div class="space-y-3 scroll-reveal">
                     <span data-i18n="contato.tag" class="text-[10px] uppercase tracking-[0.3em] text-gray-500 font-mono">.05 // CONTATO</span>
                     <div class="w-full flex justify-center">
-                        <h2 data-i18n="contato.title" class="font-syne font-extrabold text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight typewriter-title inline-block">VAMOS CRIAR ALGO JUNTOS?</h2>
+                        <h2 data-i18n="contato.title" class="font-syne font-extrabold text-xl min-[380px]:text-2xl sm:text-4xl md:text-5xl lg:text-6xl text-white uppercase tracking-tight leading-tight typewriter-title inline-block">VAMOS CRIAR ALGO JUNTOS?</h2>
                     </div>
                     <p data-i18n="contato.sub" class="text-gray-400 text-sm sm:text-base max-w-lg mx-auto scroll-reveal delay-150">
                         Estou disponível para novos projetos, colaborações e oportunidades de desenvolvimento fullstack.
@@ -725,6 +727,7 @@
                 'sobre.title': 'SOBRE MIM',
                 'sobre.p1': 'Sou desenvolvedor Fullstack focado em criar aplicações web completas, do visual até a lógica do servidor. Gosto de construir sistemas rápidos, organizados e práticos para o dia a dia.',
                 'sobre.p2': 'Minha stack principal inclui React.js, Next.js, Node.js, TypeScript e Prisma. Além da Web, também tenho bastante interesse e conhecimento prático em IoT, conectando hardware e dispositivos inteligentes a interfaces web.',
+                'sobre.stack': 'TECH STACK',
                 'projetos.tag': '.03 // PROJETO EM DESTAQUE',
                 'projetos.title': 'PROJETO EM DESTAQUE',
                 'projetos.btn': 'VER PROJETO',
@@ -765,6 +768,7 @@
                 'sobre.title': 'ABOUT ME',
                 'sobre.p1': 'I am a Fullstack Developer focused on creating complete web applications, from visual design to server logic. I enjoy building fast, organized, and practical systems for everyday use.',
                 'sobre.p2': 'My primary stack includes React.js, Next.js, Node.js, TypeScript, and Prisma. Beyond the web, I also have a strong interest and practical experience in IoT, connecting hardware and smart devices to web interfaces.',
+                'sobre.stack': 'TECH STACK',
                 'projetos.tag': '.03 // FEATURED PROJECT',
                 'projetos.title': 'FEATURED PROJECT',
                 'projetos.btn': 'VIEW PROJECT',
@@ -844,12 +848,19 @@
                 targets.forEach(el => {
                     const key = el.getAttribute('data-i18n');
                     if (i18n[currentLang] && i18n[currentLang][key]) {
+                        const newText = i18n[currentLang][key];
                         if (el.classList.contains('typewriter-title')) {
-                            el.dataset.fullText = i18n[currentLang][key];
-                            el.dataset.hasTyped = 'false';
-                            runTypewriter(el);
+                            el.dataset.fullText = newText;
+                            if (el.typewriterTimer) {
+                                clearInterval(el.typewriterTimer);
+                                el.typewriterTimer = null;
+                            }
+                            if (el.dataset.hasTyped === 'true') {
+                                el.textContent = newText;
+                                el.classList.remove('typewriter-cursor');
+                            }
                         } else {
-                            el.textContent = i18n[currentLang][key];
+                            el.textContent = newText;
                         }
                     }
                 });
@@ -1180,29 +1191,40 @@
         const typewriterElements = document.querySelectorAll('.typewriter-title');
         
         typewriterElements.forEach(el => {
-            el.dataset.fullText = el.textContent.trim();
+            if (!el.dataset.fullText) {
+                el.dataset.fullText = el.textContent.trim();
+            }
         });
 
         function runTypewriter(el) {
+            if (el.typewriterTimer) {
+                clearInterval(el.typewriterTimer);
+                el.typewriterTimer = null;
+            }
+
             if (el.dataset.hasTyped === 'true') return;
-            el.dataset.hasTyped = 'true';
             
-            const targetText = el.dataset.fullText || '';
+            const targetText = el.dataset.fullText || el.textContent.trim() || '';
+            if (!targetText) return;
+
+            el.dataset.hasTyped = 'true';
+            el.dataset.fullText = targetText;
             el.textContent = '';
             el.classList.add('typewriter-cursor');
             
             let charIndex = 0;
-            const typingInterval = setInterval(() => {
+            el.typewriterTimer = setInterval(() => {
                 if (charIndex < targetText.length) {
                     el.textContent += targetText.charAt(charIndex);
                     charIndex++;
                 } else {
-                    clearInterval(typingInterval);
+                    clearInterval(el.typewriterTimer);
+                    el.typewriterTimer = null;
                     setTimeout(() => {
                         el.classList.remove('typewriter-cursor');
                     }, 800);
                 }
-            }, 60);
+            }, 50);
         }
 
         const typewriterObserver = new IntersectionObserver((entries) => {
@@ -1211,7 +1233,7 @@
                     runTypewriter(entry.target);
                 }
             });
-        }, { root: null, threshold: 0.1 });
+        }, { root: null, threshold: 0.05 });
 
         typewriterElements.forEach(el => typewriterObserver.observe(el));
     </script>
